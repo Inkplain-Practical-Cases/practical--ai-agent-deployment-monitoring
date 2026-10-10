@@ -4,7 +4,7 @@
   "description": "Harden and verify deployment",
   "source": {
     "repo": "https://github.com/Inkplain-Practical-Cases/practical--ai-agent-deployment-monitoring",
-    "revision": "step-06-harden-and-verify-deployment",
+    "revision": "main",
     "roots": {
       "backend": "app"
     },
@@ -15,11 +15,11 @@
     ]
   },
   "step": {
-    "no": 6,
+    "no": "final",
     "of": 6,
-    "title": "Harden and verify deployment",
-    "branch": "step-06-harden-and-verify-deployment",
-    "previous": "STEP-5.crd",
+    "title": "AI Agent Deployment & Monitoring",
+    "branch": "main",
+    "previous": "STEP-6.crd",
     "removed": []
   },
   "flows": [
@@ -41,7 +41,7 @@
       "source": {
         "file": "app/providers/response_provider.py",
         "symbol": "provider_response",
-        "revision": "step-06-harden-and-verify-deployment",
+        "revision": "main",
         "lines": [
           1,
           4
@@ -66,7 +66,7 @@
       "source": {
         "file": "app/features/agent/service.py",
         "symbol": "service_answer",
-        "revision": "step-06-harden-and-verify-deployment",
+        "revision": "main",
         "lines": [
           1,
           4
@@ -114,7 +114,7 @@
       "source": {
         "file": "app/features/agent/handler.py",
         "symbol": "handle_request",
-        "revision": "step-06-harden-and-verify-deployment",
+        "revision": "main",
         "lines": [
           1,
           4
@@ -151,7 +151,7 @@
       "source": {
         "file": "app/features/agent/door.py",
         "symbol": "invoke",
-        "revision": "step-06-harden-and-verify-deployment",
+        "revision": "main",
         "lines": [
           1,
           9
@@ -188,7 +188,7 @@
       "source": {
         "file": "app/core/config.py",
         "symbol": "RuntimeConfig",
-        "revision": "step-06-harden-and-verify-deployment",
+        "revision": "main",
         "lines": [
           1,
           8
@@ -213,7 +213,7 @@
       "source": {
         "file": "app/core/config.py",
         "symbol": "service_load_config",
-        "revision": "step-06-harden-and-verify-deployment",
+        "revision": "main",
         "lines": [
           1,
           8
@@ -250,7 +250,7 @@
       "source": {
         "file": "app/core/logging.py",
         "symbol": "service_log_event",
-        "revision": "step-06-harden-and-verify-deployment",
+        "revision": "main",
         "lines": [
           1,
           6
@@ -275,7 +275,7 @@
       "source": {
         "file": "app/core/health.py",
         "symbol": "service_health",
-        "revision": "step-06-harden-and-verify-deployment",
+        "revision": "main",
         "lines": [
           1,
           7
@@ -300,7 +300,7 @@
       "source": {
         "file": "app/core/health.py",
         "symbol": "service_readiness",
-        "revision": "step-06-harden-and-verify-deployment",
+        "revision": "main",
         "lines": [
           1,
           7
@@ -337,7 +337,7 @@
       "source": {
         "file": "app/core/door.py",
         "symbol": "health",
-        "revision": "step-06-harden-and-verify-deployment",
+        "revision": "main",
         "lines": [
           1,
           8
@@ -374,7 +374,7 @@
       "source": {
         "file": "app/core/door.py",
         "symbol": "ready",
-        "revision": "step-06-harden-and-verify-deployment",
+        "revision": "main",
         "lines": [
           1,
           8
@@ -411,7 +411,7 @@
       "source": {
         "file": "Dockerfile",
         "symbol": "ContainerRuntime",
-        "revision": "step-06-harden-and-verify-deployment",
+        "revision": "main",
         "lines": [
           1,
           9
@@ -436,7 +436,7 @@
       "source": {
         "file": "tests/test_regression.py",
         "symbol": "DeploymentRegression",
-        "revision": "step-06-harden-and-verify-deployment",
+        "revision": "main",
         "lines": [
           1,
           11
@@ -444,7 +444,7 @@
       },
       "owner": "agent",
       "status": "observed",
-      "step_change": "added",
+      "step_change": "unchanged",
       "component_reason": "Demonstrates testable runtime and operational boundaries.",
       "inputs": [],
       "validations": [],

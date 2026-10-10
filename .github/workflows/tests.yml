@@ -1,0 +1,33 @@
+name: Test all seven agent deployment branches
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  pytest:
+    name: pytest ${{ matrix.branch }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        branch:
+          - step-01-build-the-agent-service-api
+          - step-02-validate-runtime-configuration
+          - step-03-record-safe-structured-events
+          - step-04-add-health-and-readiness-probes
+          - step-05-containerize-and-configure-delivery
+          - step-06-harden-and-verify-deployment
+          - main
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ matrix.branch }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install requirements
+        run: python -m pip install -r requirements.txt
+      - name: Run tests
+        run: python -m pytest -q
