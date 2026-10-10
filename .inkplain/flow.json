@@ -29,7 +29,13 @@
         "ci_status": "success",
         "ci_jobs": 7
       }
+    },
+    "inkp": {
+      "status": "in_progress",
+      "started_at": "2026-10-10T05:48:19.089Z",
+      "finished_at": null,
+      "updated_by": "api-key:for-chatgpt-test-2"
     }
   },
-  "updated_at": "2026-10-10T05:47:49.884Z"
+  "updated_at": "2026-10-10T05:48:19.089Z"
 }
