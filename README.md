@@ -1,3 +1,3 @@
-# AI Agent Deployment & Monitoring STEP-3
+# AI Agent Deployment & Monitoring STEP-4
 
-Record safe structured events. Run `python -m pip install -r requirements.txt && python -m pytest -q`. All examples are offline and deterministic.
+Add health and readiness probes. Run `python -m pip install -r requirements.txt && python -m pytest -q`. All examples are offline and deterministic.

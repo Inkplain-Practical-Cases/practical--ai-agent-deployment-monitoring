@@ -1,10 +1,10 @@
 {
   "crd_version": 1,
   "name": "AI Agent Deployment & Monitoring",
-  "description": "Record safe structured events",
+  "description": "Add health and readiness probes",
   "source": {
     "repo": "https://github.com/Inkplain-Practical-Cases/practical--ai-agent-deployment-monitoring",
-    "revision": "step-03-record-safe-structured-events",
+    "revision": "step-04-add-health-and-readiness-probes",
     "roots": {
       "backend": "app"
     },
@@ -15,11 +15,11 @@
     ]
   },
   "step": {
-    "no": 3,
+    "no": 4,
     "of": 6,
-    "title": "Record safe structured events",
-    "branch": "step-03-record-safe-structured-events",
-    "previous": "STEP-2.crd",
+    "title": "Add health and readiness probes",
+    "branch": "step-04-add-health-and-readiness-probes",
+    "previous": "STEP-3.crd",
     "removed": []
   },
   "flows": [
@@ -41,7 +41,7 @@
       "source": {
         "file": "app/providers/response_provider.py",
         "symbol": "provider_response",
-        "revision": "step-03-record-safe-structured-events",
+        "revision": "step-04-add-health-and-readiness-probes",
         "lines": [
           1,
           4
@@ -66,7 +66,7 @@
       "source": {
         "file": "app/features/agent/service.py",
         "symbol": "service_answer",
-        "revision": "step-03-record-safe-structured-events",
+        "revision": "step-04-add-health-and-readiness-probes",
         "lines": [
           1,
           4
@@ -74,7 +74,7 @@
       },
       "owner": "agent",
       "status": "observed",
-      "step_change": "changed",
+      "step_change": "unchanged",
       "component_reason": "Demonstrates testable runtime and operational boundaries.",
       "inputs": [],
       "validations": [],
@@ -114,7 +114,7 @@
       "source": {
         "file": "app/features/agent/handler.py",
         "symbol": "handle_request",
-        "revision": "step-03-record-safe-structured-events",
+        "revision": "step-04-add-health-and-readiness-probes",
         "lines": [
           1,
           4
@@ -151,7 +151,7 @@
       "source": {
         "file": "app/features/agent/door.py",
         "symbol": "invoke",
-        "revision": "step-03-record-safe-structured-events",
+        "revision": "step-04-add-health-and-readiness-probes",
         "lines": [
           1,
           9
@@ -188,7 +188,7 @@
       "source": {
         "file": "app/core/config.py",
         "symbol": "RuntimeConfig",
-        "revision": "step-03-record-safe-structured-events",
+        "revision": "step-04-add-health-and-readiness-probes",
         "lines": [
           1,
           8
@@ -213,7 +213,7 @@
       "source": {
         "file": "app/core/config.py",
         "symbol": "service_load_config",
-        "revision": "step-03-record-safe-structured-events",
+        "revision": "step-04-add-health-and-readiness-probes",
         "lines": [
           1,
           8
@@ -250,10 +250,35 @@
       "source": {
         "file": "app/core/logging.py",
         "symbol": "service_log_event",
-        "revision": "step-03-record-safe-structured-events",
+        "revision": "step-04-add-health-and-readiness-probes",
         "lines": [
           1,
           6
+        ]
+      },
+      "owner": "agent",
+      "status": "observed",
+      "step_change": "unchanged",
+      "component_reason": "Demonstrates testable runtime and operational boundaries.",
+      "inputs": [],
+      "validations": [],
+      "outputs": [],
+      "operations": []
+    },
+    {
+      "id": "be.service_health",
+      "name": "service_health",
+      "kind": "class",
+      "side": "backend",
+      "layer": "service",
+      "description": "service_health owns the service reliability responsibility for the running agent service.",
+      "source": {
+        "file": "app/core/health.py",
+        "symbol": "service_health",
+        "revision": "step-04-add-health-and-readiness-probes",
+        "lines": [
+          1,
+          7
         ]
       },
       "owner": "agent",
@@ -264,6 +289,117 @@
       "validations": [],
       "outputs": [],
       "operations": []
+    },
+    {
+      "id": "be.service_readiness",
+      "name": "service_readiness",
+      "kind": "class",
+      "side": "backend",
+      "layer": "service",
+      "description": "service_readiness owns the service reliability responsibility for the running agent service.",
+      "source": {
+        "file": "app/core/health.py",
+        "symbol": "service_readiness",
+        "revision": "step-04-add-health-and-readiness-probes",
+        "lines": [
+          1,
+          7
+        ]
+      },
+      "owner": "agent",
+      "status": "observed",
+      "step_change": "added",
+      "component_reason": "Demonstrates testable runtime and operational boundaries.",
+      "inputs": [],
+      "validations": [],
+      "outputs": [],
+      "operations": [
+        {
+          "id": "call-0",
+          "title": "Call service_load_config",
+          "description": "Delegate",
+          "show": true,
+          "calls": {
+            "component": "be.service_load_config",
+            "type": "call",
+            "label": "calls"
+          }
+        }
+      ]
+    },
+    {
+      "id": "be.health",
+      "name": "health",
+      "kind": "class",
+      "side": "backend",
+      "layer": "door",
+      "description": "health owns the door reliability responsibility for the running agent service.",
+      "source": {
+        "file": "app/core/door.py",
+        "symbol": "health",
+        "revision": "step-04-add-health-and-readiness-probes",
+        "lines": [
+          1,
+          8
+        ]
+      },
+      "owner": "agent",
+      "status": "observed",
+      "step_change": "added",
+      "component_reason": "Demonstrates testable runtime and operational boundaries.",
+      "inputs": [],
+      "validations": [],
+      "outputs": [],
+      "operations": [
+        {
+          "id": "call-0",
+          "title": "Call service_health",
+          "description": "Delegate",
+          "show": true,
+          "calls": {
+            "component": "be.service_health",
+            "type": "call",
+            "label": "calls"
+          }
+        }
+      ]
+    },
+    {
+      "id": "be.ready",
+      "name": "ready",
+      "kind": "class",
+      "side": "backend",
+      "layer": "door",
+      "description": "ready owns the door reliability responsibility for the running agent service.",
+      "source": {
+        "file": "app/core/door.py",
+        "symbol": "ready",
+        "revision": "step-04-add-health-and-readiness-probes",
+        "lines": [
+          1,
+          8
+        ]
+      },
+      "owner": "agent",
+      "status": "observed",
+      "step_change": "added",
+      "component_reason": "Demonstrates testable runtime and operational boundaries.",
+      "inputs": [],
+      "validations": [],
+      "outputs": [],
+      "operations": [
+        {
+          "id": "call-0",
+          "title": "Call service_readiness",
+          "description": "Delegate",
+          "show": true,
+          "calls": {
+            "component": "be.service_readiness",
+            "type": "call",
+            "label": "calls"
+          }
+        }
+      ]
     }
   ],
   "dependencies": [],
