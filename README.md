@@ -1,3 +1,3 @@
-# AI Agent Deployment & Monitoring STEP-5
+# AI Agent Deployment & Monitoring STEP-6
 
-Containerize and configure delivery. Run `python -m pip install -r requirements.txt && python -m pytest -q`. All examples are offline and deterministic.
+Harden and verify deployment. Run `python -m pip install -r requirements.txt && python -m pytest -q`. All examples are offline and deterministic.
