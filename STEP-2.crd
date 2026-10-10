@@ -1,10 +1,10 @@
 {
   "crd_version": 1,
   "name": "AI Agent Deployment & Monitoring",
-  "description": "Build the agent service API",
+  "description": "Validate runtime configuration",
   "source": {
     "repo": "https://github.com/Inkplain-Practical-Cases/practical--ai-agent-deployment-monitoring",
-    "revision": "step-01-build-the-agent-service-api",
+    "revision": "step-02-validate-runtime-configuration",
     "roots": {
       "backend": "app"
     },
@@ -15,11 +15,11 @@
     ]
   },
   "step": {
-    "no": 1,
+    "no": 2,
     "of": 6,
-    "title": "Build the agent service API",
-    "branch": "step-01-build-the-agent-service-api",
-    "previous": null,
+    "title": "Validate runtime configuration",
+    "branch": "step-02-validate-runtime-configuration",
+    "previous": "STEP-1.crd",
     "removed": []
   },
   "flows": [
@@ -41,7 +41,7 @@
       "source": {
         "file": "app/providers/response_provider.py",
         "symbol": "provider_response",
-        "revision": "step-01-build-the-agent-service-api",
+        "revision": "step-02-validate-runtime-configuration",
         "lines": [
           1,
           4
@@ -49,7 +49,7 @@
       },
       "owner": "agent",
       "status": "observed",
-      "step_change": "added",
+      "step_change": "unchanged",
       "component_reason": "Demonstrates testable runtime and operational boundaries.",
       "inputs": [],
       "validations": [],
@@ -66,7 +66,7 @@
       "source": {
         "file": "app/features/agent/service.py",
         "symbol": "service_answer",
-        "revision": "step-01-build-the-agent-service-api",
+        "revision": "step-02-validate-runtime-configuration",
         "lines": [
           1,
           4
@@ -74,7 +74,7 @@
       },
       "owner": "agent",
       "status": "observed",
-      "step_change": "added",
+      "step_change": "unchanged",
       "component_reason": "Demonstrates testable runtime and operational boundaries.",
       "inputs": [],
       "validations": [],
@@ -103,7 +103,7 @@
       "source": {
         "file": "app/features/agent/handler.py",
         "symbol": "handle_request",
-        "revision": "step-01-build-the-agent-service-api",
+        "revision": "step-02-validate-runtime-configuration",
         "lines": [
           1,
           4
@@ -111,7 +111,7 @@
       },
       "owner": "agent",
       "status": "observed",
-      "step_change": "added",
+      "step_change": "unchanged",
       "component_reason": "Demonstrates testable runtime and operational boundaries.",
       "inputs": [],
       "validations": [],
@@ -140,7 +140,7 @@
       "source": {
         "file": "app/features/agent/door.py",
         "symbol": "invoke",
-        "revision": "step-01-build-the-agent-service-api",
+        "revision": "step-02-validate-runtime-configuration",
         "lines": [
           1,
           9
@@ -148,7 +148,7 @@
       },
       "owner": "agent",
       "status": "observed",
-      "step_change": "added",
+      "step_change": "unchanged",
       "component_reason": "Demonstrates testable runtime and operational boundaries.",
       "inputs": [],
       "validations": [],
@@ -161,6 +161,68 @@
           "show": true,
           "calls": {
             "component": "be.handle_request",
+            "type": "call",
+            "label": "calls"
+          }
+        }
+      ]
+    },
+    {
+      "id": "be.RuntimeConfig",
+      "name": "RuntimeConfig",
+      "kind": "class",
+      "side": "backend",
+      "layer": "schema",
+      "description": "RuntimeConfig owns the schema reliability responsibility for the running agent service.",
+      "source": {
+        "file": "app/core/config.py",
+        "symbol": "RuntimeConfig",
+        "revision": "step-02-validate-runtime-configuration",
+        "lines": [
+          1,
+          8
+        ]
+      },
+      "owner": "agent",
+      "status": "observed",
+      "step_change": "added",
+      "component_reason": "Demonstrates testable runtime and operational boundaries.",
+      "inputs": [],
+      "validations": [],
+      "outputs": [],
+      "operations": []
+    },
+    {
+      "id": "be.service_load_config",
+      "name": "service_load_config",
+      "kind": "class",
+      "side": "backend",
+      "layer": "config",
+      "description": "service_load_config owns the config reliability responsibility for the running agent service.",
+      "source": {
+        "file": "app/core/config.py",
+        "symbol": "service_load_config",
+        "revision": "step-02-validate-runtime-configuration",
+        "lines": [
+          1,
+          8
+        ]
+      },
+      "owner": "agent",
+      "status": "observed",
+      "step_change": "added",
+      "component_reason": "Demonstrates testable runtime and operational boundaries.",
+      "inputs": [],
+      "validations": [],
+      "outputs": [],
+      "operations": [
+        {
+          "id": "call-0",
+          "title": "Call RuntimeConfig",
+          "description": "Delegate",
+          "show": true,
+          "calls": {
+            "component": "be.RuntimeConfig",
             "type": "call",
             "label": "calls"
           }
