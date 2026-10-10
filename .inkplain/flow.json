@@ -1,0 +1,35 @@
+{
+  "practical_case": {
+    "id": "hmI4kw9i8XE1fDatQbqR",
+    "slug": "ai-agent-deployment-monitoring",
+    "name": "AI Agent Deployment & Monitoring"
+  },
+  "current": "inkp",
+  "stages": {
+    "intro": {
+      "status": "done",
+      "started_at": "2026-10-10T05:35:50.460Z",
+      "finished_at": "2026-10-10T05:36:03.529Z",
+      "updated_by": "api-key:for-chatgpt-test-2",
+      "summary": "Seven detailed Introduction sections written and retrieved; four Starter skills linked, motivational nature/animal cover uploaded to Media Library and bound.",
+      "outputs": {
+        "intro_sections": 7,
+        "linked_skills": 4,
+        "cover_media_id": "JYlmXoQlVPWDX6vzRjHe"
+      }
+    },
+    "repo": {
+      "status": "done",
+      "summary": "Six cumulative code/test/CRD branches and FINAL.crd confirmed. Seven GitHub Actions CI jobs succeeded.",
+      "started_at": "2026-10-10T05:41:21.761Z",
+      "finished_at": "2026-10-10T05:47:49.884Z",
+      "updated_by": "api-key:for-chatgpt-test-2",
+      "outputs": {
+        "ci_run_id": 38028472686,
+        "ci_status": "success",
+        "ci_jobs": 7
+      }
+    }
+  },
+  "updated_at": "2026-10-10T05:47:49.884Z"
+}
