@@ -1,3 +1,3 @@
-# AI Agent Deployment & Monitoring STEP-2
+# AI Agent Deployment & Monitoring STEP-3
 
-Validate runtime configuration. Run `python -m pip install -r requirements.txt && python -m pytest -q`. All examples are offline and deterministic.
+Record safe structured events. Run `python -m pip install -r requirements.txt && python -m pytest -q`. All examples are offline and deterministic.

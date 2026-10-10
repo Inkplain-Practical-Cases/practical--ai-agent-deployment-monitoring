@@ -1,10 +1,10 @@
 {
   "crd_version": 1,
   "name": "AI Agent Deployment & Monitoring",
-  "description": "Validate runtime configuration",
+  "description": "Record safe structured events",
   "source": {
     "repo": "https://github.com/Inkplain-Practical-Cases/practical--ai-agent-deployment-monitoring",
-    "revision": "step-02-validate-runtime-configuration",
+    "revision": "step-03-record-safe-structured-events",
     "roots": {
       "backend": "app"
     },
@@ -15,11 +15,11 @@
     ]
   },
   "step": {
-    "no": 2,
+    "no": 3,
     "of": 6,
-    "title": "Validate runtime configuration",
-    "branch": "step-02-validate-runtime-configuration",
-    "previous": "STEP-1.crd",
+    "title": "Record safe structured events",
+    "branch": "step-03-record-safe-structured-events",
+    "previous": "STEP-2.crd",
     "removed": []
   },
   "flows": [
@@ -41,7 +41,7 @@
       "source": {
         "file": "app/providers/response_provider.py",
         "symbol": "provider_response",
-        "revision": "step-02-validate-runtime-configuration",
+        "revision": "step-03-record-safe-structured-events",
         "lines": [
           1,
           4
@@ -66,7 +66,7 @@
       "source": {
         "file": "app/features/agent/service.py",
         "symbol": "service_answer",
-        "revision": "step-02-validate-runtime-configuration",
+        "revision": "step-03-record-safe-structured-events",
         "lines": [
           1,
           4
@@ -74,7 +74,7 @@
       },
       "owner": "agent",
       "status": "observed",
-      "step_change": "unchanged",
+      "step_change": "changed",
       "component_reason": "Demonstrates testable runtime and operational boundaries.",
       "inputs": [],
       "validations": [],
@@ -90,6 +90,17 @@
             "type": "call",
             "label": "calls"
           }
+        },
+        {
+          "id": "log",
+          "title": "Emit safe event",
+          "description": "Log metadata",
+          "show": true,
+          "calls": {
+            "component": "be.service_log_event",
+            "type": "call",
+            "label": "logs"
+          }
         }
       ]
     },
@@ -103,7 +114,7 @@
       "source": {
         "file": "app/features/agent/handler.py",
         "symbol": "handle_request",
-        "revision": "step-02-validate-runtime-configuration",
+        "revision": "step-03-record-safe-structured-events",
         "lines": [
           1,
           4
@@ -140,7 +151,7 @@
       "source": {
         "file": "app/features/agent/door.py",
         "symbol": "invoke",
-        "revision": "step-02-validate-runtime-configuration",
+        "revision": "step-03-record-safe-structured-events",
         "lines": [
           1,
           9
@@ -177,7 +188,7 @@
       "source": {
         "file": "app/core/config.py",
         "symbol": "RuntimeConfig",
-        "revision": "step-02-validate-runtime-configuration",
+        "revision": "step-03-record-safe-structured-events",
         "lines": [
           1,
           8
@@ -185,7 +196,7 @@
       },
       "owner": "agent",
       "status": "observed",
-      "step_change": "added",
+      "step_change": "unchanged",
       "component_reason": "Demonstrates testable runtime and operational boundaries.",
       "inputs": [],
       "validations": [],
@@ -202,7 +213,7 @@
       "source": {
         "file": "app/core/config.py",
         "symbol": "service_load_config",
-        "revision": "step-02-validate-runtime-configuration",
+        "revision": "step-03-record-safe-structured-events",
         "lines": [
           1,
           8
@@ -210,7 +221,7 @@
       },
       "owner": "agent",
       "status": "observed",
-      "step_change": "added",
+      "step_change": "unchanged",
       "component_reason": "Demonstrates testable runtime and operational boundaries.",
       "inputs": [],
       "validations": [],
@@ -228,6 +239,31 @@
           }
         }
       ]
+    },
+    {
+      "id": "be.service_log_event",
+      "name": "service_log_event",
+      "kind": "class",
+      "side": "backend",
+      "layer": "service",
+      "description": "service_log_event owns the service reliability responsibility for the running agent service.",
+      "source": {
+        "file": "app/core/logging.py",
+        "symbol": "service_log_event",
+        "revision": "step-03-record-safe-structured-events",
+        "lines": [
+          1,
+          6
+        ]
+      },
+      "owner": "agent",
+      "status": "observed",
+      "step_change": "added",
+      "component_reason": "Demonstrates testable runtime and operational boundaries.",
+      "inputs": [],
+      "validations": [],
+      "outputs": [],
+      "operations": []
     }
   ],
   "dependencies": [],
