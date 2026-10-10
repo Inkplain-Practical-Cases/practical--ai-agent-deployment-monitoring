@@ -1,10 +1,10 @@
 {
   "crd_version": 1,
   "name": "AI Agent Deployment & Monitoring",
-  "description": "Add health and readiness probes",
+  "description": "Containerize and configure delivery",
   "source": {
     "repo": "https://github.com/Inkplain-Practical-Cases/practical--ai-agent-deployment-monitoring",
-    "revision": "step-04-add-health-and-readiness-probes",
+    "revision": "step-05-containerize-and-configure-delivery",
     "roots": {
       "backend": "app"
     },
@@ -15,11 +15,11 @@
     ]
   },
   "step": {
-    "no": 4,
+    "no": 5,
     "of": 6,
-    "title": "Add health and readiness probes",
-    "branch": "step-04-add-health-and-readiness-probes",
-    "previous": "STEP-3.crd",
+    "title": "Containerize and configure delivery",
+    "branch": "step-05-containerize-and-configure-delivery",
+    "previous": "STEP-4.crd",
     "removed": []
   },
   "flows": [
@@ -41,7 +41,7 @@
       "source": {
         "file": "app/providers/response_provider.py",
         "symbol": "provider_response",
-        "revision": "step-04-add-health-and-readiness-probes",
+        "revision": "step-05-containerize-and-configure-delivery",
         "lines": [
           1,
           4
@@ -66,7 +66,7 @@
       "source": {
         "file": "app/features/agent/service.py",
         "symbol": "service_answer",
-        "revision": "step-04-add-health-and-readiness-probes",
+        "revision": "step-05-containerize-and-configure-delivery",
         "lines": [
           1,
           4
@@ -114,7 +114,7 @@
       "source": {
         "file": "app/features/agent/handler.py",
         "symbol": "handle_request",
-        "revision": "step-04-add-health-and-readiness-probes",
+        "revision": "step-05-containerize-and-configure-delivery",
         "lines": [
           1,
           4
@@ -151,7 +151,7 @@
       "source": {
         "file": "app/features/agent/door.py",
         "symbol": "invoke",
-        "revision": "step-04-add-health-and-readiness-probes",
+        "revision": "step-05-containerize-and-configure-delivery",
         "lines": [
           1,
           9
@@ -188,7 +188,7 @@
       "source": {
         "file": "app/core/config.py",
         "symbol": "RuntimeConfig",
-        "revision": "step-04-add-health-and-readiness-probes",
+        "revision": "step-05-containerize-and-configure-delivery",
         "lines": [
           1,
           8
@@ -213,7 +213,7 @@
       "source": {
         "file": "app/core/config.py",
         "symbol": "service_load_config",
-        "revision": "step-04-add-health-and-readiness-probes",
+        "revision": "step-05-containerize-and-configure-delivery",
         "lines": [
           1,
           8
@@ -250,7 +250,7 @@
       "source": {
         "file": "app/core/logging.py",
         "symbol": "service_log_event",
-        "revision": "step-04-add-health-and-readiness-probes",
+        "revision": "step-05-containerize-and-configure-delivery",
         "lines": [
           1,
           6
@@ -275,7 +275,7 @@
       "source": {
         "file": "app/core/health.py",
         "symbol": "service_health",
-        "revision": "step-04-add-health-and-readiness-probes",
+        "revision": "step-05-containerize-and-configure-delivery",
         "lines": [
           1,
           7
@@ -283,7 +283,7 @@
       },
       "owner": "agent",
       "status": "observed",
-      "step_change": "added",
+      "step_change": "unchanged",
       "component_reason": "Demonstrates testable runtime and operational boundaries.",
       "inputs": [],
       "validations": [],
@@ -300,7 +300,7 @@
       "source": {
         "file": "app/core/health.py",
         "symbol": "service_readiness",
-        "revision": "step-04-add-health-and-readiness-probes",
+        "revision": "step-05-containerize-and-configure-delivery",
         "lines": [
           1,
           7
@@ -308,7 +308,7 @@
       },
       "owner": "agent",
       "status": "observed",
-      "step_change": "added",
+      "step_change": "unchanged",
       "component_reason": "Demonstrates testable runtime and operational boundaries.",
       "inputs": [],
       "validations": [],
@@ -337,7 +337,7 @@
       "source": {
         "file": "app/core/door.py",
         "symbol": "health",
-        "revision": "step-04-add-health-and-readiness-probes",
+        "revision": "step-05-containerize-and-configure-delivery",
         "lines": [
           1,
           8
@@ -345,7 +345,7 @@
       },
       "owner": "agent",
       "status": "observed",
-      "step_change": "added",
+      "step_change": "unchanged",
       "component_reason": "Demonstrates testable runtime and operational boundaries.",
       "inputs": [],
       "validations": [],
@@ -374,7 +374,7 @@
       "source": {
         "file": "app/core/door.py",
         "symbol": "ready",
-        "revision": "step-04-add-health-and-readiness-probes",
+        "revision": "step-05-containerize-and-configure-delivery",
         "lines": [
           1,
           8
@@ -382,7 +382,7 @@
       },
       "owner": "agent",
       "status": "observed",
-      "step_change": "added",
+      "step_change": "unchanged",
       "component_reason": "Demonstrates testable runtime and operational boundaries.",
       "inputs": [],
       "validations": [],
@@ -400,6 +400,31 @@
           }
         }
       ]
+    },
+    {
+      "id": "be.ContainerRuntime",
+      "name": "ContainerRuntime",
+      "kind": "class",
+      "side": "backend",
+      "layer": "config",
+      "description": "ContainerRuntime owns the config reliability responsibility for the running agent service.",
+      "source": {
+        "file": "Dockerfile",
+        "symbol": "ContainerRuntime",
+        "revision": "step-05-containerize-and-configure-delivery",
+        "lines": [
+          1,
+          9
+        ]
+      },
+      "owner": "agent",
+      "status": "observed",
+      "step_change": "added",
+      "component_reason": "Demonstrates testable runtime and operational boundaries.",
+      "inputs": [],
+      "validations": [],
+      "outputs": [],
+      "operations": []
     }
   ],
   "dependencies": [],

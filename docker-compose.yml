@@ -1,0 +1,12 @@
+services:
+  agent:
+    build: .
+    environment:
+      SERVICE_NAME: northstar-agent
+      APP_ENV: local
+    ports:
+      - "8000:8000"
+    healthcheck:
+      test: ["CMD","python","-c","import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 10s
+      retries: 5
