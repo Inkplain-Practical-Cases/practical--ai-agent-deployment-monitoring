@@ -45,7 +45,7 @@
     },
     "content": {
       "status": "done",
-      "summary": "Source-backed persistence audit completed: Runtime answers and configuration are local fixtures, logger emits redacted messages only; six legacy DB Structure tabs exist but are not backed by stored entities. No source-derived STEP-N.erd or Database lesson required.",
+      "summary": "Added source-derived real SQLite STEP-6-ERD for deployment API operational metadata; preserved six legacy DB Structure illustrations; portal Database lesson validated.",
       "started_at": "2026-10-10T05:50:18.287Z",
       "finished_at": "2026-10-10T06:23:50.536Z",
       "updated_by": "api-key:for-chatgpt-test-2",
@@ -60,9 +60,11 @@
         "readback_verified": true,
         "validation_scope": "all item counts; four new items; representative STEP and What-is bodies",
         "erd_audit_complete": true,
-        "erd_applicable_steps": [],
-        "erd_not_applicable": true,
-        "erd_lessons_created": 0,
+        "erd_applicable_steps": [
+          6
+        ],
+        "erd_not_applicable": false,
+        "erd_lessons_created": 1,
         "erd_item_title": "Database (Entity) Relations",
         "erd_audit_note": "Runtime answers and configuration are local fixtures, logger emits redacted messages only; six legacy DB Structure tabs exist but are not backed by stored entities.",
         "erd_legacy_db_structure_tabs": 6,
@@ -70,5 +72,5 @@
       }
     }
   },
-  "updated_at": "2026-10-13T15:14:55.712Z"
+  "updated_at": "2026-10-13T16:19:30.150Z"
 }
