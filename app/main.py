@@ -6,3 +6,7 @@ settings=service_load_config()
 app=FastAPI(title=settings.service_name)
 app.include_router(agent_router)
 app.include_router(ops_router)
+
+# Persist operational HTTP metadata without treating legacy DB structure illustrations as source schemas.
+from app.core.request_audit_middleware import RequestAuditMiddleware
+app.add_middleware(RequestAuditMiddleware)
